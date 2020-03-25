@@ -1,6 +1,10 @@
 import React from 'react'
 import { query } from './graphql'
 import { graphql } from '@gqless/react'
+import FullContainer from './components/FullContainer'
+import StatContainer from './components/StatContainer'
+import StatLabel from './components/StatLabel'
+import StatValue from './components/StatValue'
 
 const getAttribute = stats => attribute => stats.map(country => country[attribute])[0]
 
@@ -14,32 +18,32 @@ const Dashboard = () => {
     const deaths = getStatAttribute('deaths')
     const todayDeaths = getStatAttribute('todayDeaths')
 
-    return <div>
-        <div>
-            <h3>Critical</h3>
-            <p>{critical}</p>
-        </div>
-        <div>
-            <h3>Total Cases</h3>
-            <p>{cases}</p>
-        </div>
-        <div>
-            <h3>Total Deaths</h3>
-            <p>{deaths}</p>
-        </div>
-        <div>
-            <h3>Recovered</h3>
-            <p>{recovered}</p>
-        </div>
-        <div>
-            <h3>Cases Today</h3>
-            <p>{todayCases}</p>
-        </div>
-        <div>
-            <h3>Deaths Today</h3>
-            <p>{todayDeaths}</p>
-        </div>
-    </div>
+    return <FullContainer>
+        <StatContainer>
+            <StatLabel>CRITICAL</StatLabel>
+            <StatValue>{critical}</StatValue>
+        </StatContainer>
+        <StatContainer>
+            <StatLabel>TOTAL CASES</StatLabel>
+            <StatValue>{cases}</StatValue>
+        </StatContainer>
+        <StatContainer>
+            <StatLabel>TOTAL DEATHS</StatLabel>
+            <StatValue>{deaths}</StatValue>
+        </StatContainer>
+        <StatContainer>
+            <StatLabel>RECOVERED</StatLabel>
+            <StatValue>{recovered}</StatValue>
+        </StatContainer>
+        <StatContainer>
+            <StatLabel>CASES TODAY</StatLabel>
+            <StatValue>{todayCases}</StatValue>
+        </StatContainer>
+        <StatContainer>
+            <StatLabel>DEATHS TODAY</StatLabel>
+            <StatValue>{todayDeaths}</StatValue>
+        </StatContainer>
+    </FullContainer>
 }
 
 export default graphql(Dashboard)
