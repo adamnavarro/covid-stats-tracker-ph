@@ -1,6 +1,6 @@
 import React from 'react'
 import { query } from './graphql'
-import { graphql } from '@gqless/react'
+import { graphql, usePoll } from '@gqless/react'
 import FullContainer from './components/FullContainer'
 import StatContainer from './components/StatContainer'
 import StatLabel from './components/StatLabel'
@@ -10,6 +10,10 @@ const getAttribute = stats => attribute => stats.map(country => country[attribut
 
 const Dashboard = () => {
     const phStats = query.countryStats({filter: {country: "Philippines"}})
+
+    // Poll API every minute
+    usePoll(phStats, 60000)
+
     const getStatAttribute = getAttribute(phStats)
     const critical = getStatAttribute('critical')
     const recovered = getStatAttribute('recovered')
@@ -17,6 +21,8 @@ const Dashboard = () => {
     const todayCases = getStatAttribute('todayCases')
     const deaths = getStatAttribute('deaths')
     const todayDeaths = getStatAttribute('todayDeaths')
+
+
 
     return <FullContainer>
         <StatContainer>
