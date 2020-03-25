@@ -6,8 +6,8 @@ const StatContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 15rem;
-    height: 15rem;
+    width: 25rem;
+    height: 20rem;
 `
 
 export default StatContainer
