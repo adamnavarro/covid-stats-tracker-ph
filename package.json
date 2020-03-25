@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate": "gqless generate"
+    "generate": "gqless generate",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"
