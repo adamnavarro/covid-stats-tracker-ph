@@ -38,7 +38,8 @@
     ]
   },
   "devDependencies": {
-    "@gqless/cli": "0.0.1-alpha.30"
+    "@gqless/cli": "0.0.1-alpha.30",
+    "react-snap": "^1.23.0"
   },
   "gqless": {
     "url": "https://covid-stats-graphql.azurewebsites.net",
